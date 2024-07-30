@@ -9,12 +9,13 @@ let board = {
 
 class Cell {
     constructor(
-        $element,
-        color
+        $element
     ) {
         this.$element = $element;
-        this.color;
+        this.indexes = { x: undefined, y: undefined };
+        this.color = '';
         this.isAlive = false;
-        // this.isAvailable = false;
+        this.isAvailable = false;
+        this.isCurrent = false;
     }
 }

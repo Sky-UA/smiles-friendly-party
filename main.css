@@ -40,8 +40,9 @@ html, body {
 }
 
 .available-cell {
-    background-color: lightgreen;
-    border: 1px solid green;
+    background-color: white;
+    /*border: 1px solid green;*/
+    opacity: 0.3;
 }
 
 

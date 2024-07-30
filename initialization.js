@@ -38,21 +38,29 @@ function initCells() {
             $cell.css('height', board.cellSize + 'px');
             // $cell.text(`${column}-${row}`);
 
-            let color = colors[counter];
+            let cell = new Cell( $cell );
+            cell.indexes = { x: column, y: row };
 
+            let color = colors[counter];
             switch (color) {
-                case 'black':
-                    $cell.addClass('black');
-                    break;
                 case 'white':
+                    cell.isAlive = true;
+                    cell.color = color;
                     $cell.addClass('white');
                     break;
+                case 'black':
+                    cell.isAlive = true;
+                    cell.color = color;
+                    $cell.addClass('black');
+                    break;
                 case 'gray':
+                    cell.isAlive = false;
+                    cell.color = color;
                     $cell.addClass('gray');
                     break;
             }
 
-            board.cells.push(new Cell($cell, color));
+            board.cells.push( cell );
             counter++;
         }
     }
