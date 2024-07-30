@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+#board {
+    background-image: url('images/wooden.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* visibility: hidden; */
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    box-sizing: border-box;
+    /*background-color: white;*/
+    /* border: 1px solid #b9a0a0; */
+    /*border-width: 1px;*/
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #818181;
+    /*background-color: #ababab;*/
+    /*box-sizing: border-box;*/
+    /*user-select: none;*/
+    /*font-size: small;*/
+    /*background-image: url('images/units/swordman.png');*/
+    /*background-size: 60px 60px;*/
+    /*background-repeat: no-repeat;*/
+    /* opacity: 0.8; */
+    /*opacity: 0.01;*/
+}
+
+.available-cell {
+    background-color: lightgreen;
+    border: 1px solid green;
+}
+
+
+
+.black {
+    /*background-color: black;*/
+    /*background-image: url('images/smile-blue.png');*/
+    /*background-image: url('images/smile-orange.png');*/
+    /*background-image: url('images/smile-gold.png');*/
+    /*background-image: url('images/smile-black.png');*/
+    /*background-image: url('images/smile-gray.png');*/
+    /*background-image: url('images/smile-brown.png');*/
+    background-image: url('images/smile-lightgray.png');
+    /*background-image: url('images/smile-olive.png');*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.white {
+    /*background-color: white;*/
+    /*background-image: url('images/smile-yellow.png');*/
+    /*background-image: url('images/smile-white.png');*/
+    background-image: url('images/smile-olive.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.gray {
+    /*background-color: gray;*/
+    /*opacity: 0;*/
+    /*border-width: 1px;*/
+    /* border-width: 0 1px 1px 0;*/
+    border-style: solid;
+    /* border-color: #7b6464; */
+}
+
+
+
+/*.black {*/
+/*    background-color: black;*/
+/*    background-image: url('images/smile-yellow.png');*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 100% 100%;*/
+/*}*/
+/*.white {*/
+/*    background-color: white;*/
+/*    background-image: url('images/smile-yellow.png');*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 100% 100%;*/
+/*}*/
+/*.gray {*/
+/*    background-color: gray;*/
+/*    opacity: 0.2;*/
+/*}*/
