@@ -3,12 +3,15 @@ function onCellClick( event ) {
     let $cell = $( this );
     let cell = getCellByElement( $cell );
 
-    if ( cell.color === 'white' || cell.color === 'black' ) {
-        // cell.isCurrent = true;
+    if ( (!cell.isMooved && cell.color === 'white' && board.currentTeamColor === 'white')
+         || (!cell.isMooved && cell.color === 'black' && board.currentTeamColor === 'black') ) {
         showAvailableCells( cell );
     }
 
-    if ( cell.color === 'gray' || cell.isAvailable === true ) {
+    // if ( cell.color === 'gray' && cell.isAvailable === true ) {
+    if ( cell.isAvailable === true ) {
         moveCell( cell );
+        markDyingCells();
+        passTurn();
     }
 }

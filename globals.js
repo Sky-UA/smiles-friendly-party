@@ -4,7 +4,8 @@ let board = {
     columns: 7,
     cells: [],
     cellSize: undefined,
-    $cells: $( '.cell' )
+    $cells: $( '.cell' ),
+    currentTeamColor: 'white'
 };
 
 class Cell {
@@ -17,5 +18,7 @@ class Cell {
         this.isAlive = false;
         this.isAvailable = false;
         this.isCurrent = false;
+        this.isMooved = false;
+        this.isDying = false;
     }
 }

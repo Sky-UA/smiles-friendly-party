@@ -44,6 +44,14 @@ html, body {
     /*border: 1px solid green;*/
     opacity: 0.3;
 }
+.mooved-cell {
+    background-color: gray;
+    /*border: 1px solid green;*/
+    /*opacity: 0.7;*/
+}
+.dying-cell {
+    border: 1px solid red;
+}
 
 
 

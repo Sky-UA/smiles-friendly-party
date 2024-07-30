@@ -69,4 +69,5 @@ function initCells() {
 function initialization() {
     initBoard();
     initCells();
+    markDyingCells();
 }
