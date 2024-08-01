@@ -21,6 +21,7 @@ class Cell {
         this.isAvailable = false;
         this.isCurrent = false;
         this.isMooved = false;
+        this.isBlocked = false;
         this.isDying = false;
         this.isReadyToNewBorn = false;
         this.$element = $element;

@@ -334,10 +334,52 @@ function addNewBornCells() {
     }
 }
 
+function isNonMoovedCellBlocked(cell) {
+    let opponentTeamNeighboursCounter = 0;
+    let cellColor = cell.color;
+
+    let neighbourN = getCellByIndexes({x: cell.indexes.x, y: cell.indexes.y - 1});
+    let neighbourE = getCellByIndexes({x: cell.indexes.x + 1, y: cell.indexes.y});
+    let neighbourS = getCellByIndexes({x: cell.indexes.x, y: cell.indexes.y + 1});
+    let neighbourW = getCellByIndexes({x: cell.indexes.x - 1, y: cell.indexes.y});
+
+    if (neighbourN) {
+        if (neighbourN.isAlive ) {
+            if (neighbourN.color !== cellColor) {
+                opponentTeamNeighboursCounter++;
+            }
+        }
+    }
+    if (neighbourE) {
+        if (neighbourE.isAlive ) {
+            if (neighbourE.color !== cellColor) {
+                opponentTeamNeighboursCounter++;
+            }
+        }
+    }
+    if (neighbourS) {
+        if (neighbourS.isAlive ) {
+            if (neighbourS.color !== cellColor) {
+                opponentTeamNeighboursCounter++;
+            }
+        }
+    }
+    if (neighbourW) {
+        if (neighbourW.isAlive ) {
+            if (neighbourW.color !== cellColor) {
+                opponentTeamNeighboursCounter++;
+            }
+        }
+    }
+
+
+    if (opponentTeamNeighboursCounter === 4) return true;
+}
+
 function passTurn() {
 
     // TODO: проверить, что если остались лишь смайлики которым некуда ходить, то передавать ход автоматически следуйщей команде!!!
-
+    // TODO: исправить передачу хода, если разное колво смайлов в командах!
     let isAllCellsMooved = true;
 
     for ( let cell of board.cells ) {

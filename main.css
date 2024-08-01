@@ -73,6 +73,9 @@ html, body {
     background-image: url('images/smile-lightgray-new.png');
     opacity: 0.5;
 }
+.blocked-cell {
+    border: 2px solid black;
+}
 
 
 
