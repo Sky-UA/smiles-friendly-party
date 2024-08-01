@@ -27,7 +27,7 @@ html, body {
     /*border-width: 1px;*/
     border-width: 0 1px 1px 0;
     border-style: solid;
-    border-color: #818181;
+    border-color: #a56600;
     /*background-color: #ababab;*/
     /*box-sizing: border-box;*/
     /*user-select: none;*/
@@ -37,6 +37,8 @@ html, body {
     /*background-repeat: no-repeat;*/
     /* opacity: 0.8; */
     /*opacity: 0.01;*/
+
+    position: relative;
 }
 
 .available-cell {
@@ -45,12 +47,31 @@ html, body {
     opacity: 0.3;
 }
 .mooved-cell {
-    background-color: gray;
+    /* background-color: gray; */
     /*border: 1px solid green;*/
-    /*opacity: 0.7;*/
+    opacity: 0.5;
 }
 .dying-cell {
-    border: 1px solid red;
+    border: 2px solid red;
+    /* background-color: #7f3232; */
+}
+.ready-to-new-born-white-cell, .ready-to-new-born-black-cell {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /*position: absolute;*/
+    /*left: 24%;*/
+    /*top: 26%;*/
+    opacity: 0.5;
+}
+.ready-to-new-born-white-cell {
+    /*border: 1px solid white;*/
+    background-image: url('images/smile-olive-new.png');
+    /* opacity: 0.5; */
+}
+.ready-to-new-born-black-cell {
+    /*border: 2px solid black;*/
+    background-image: url('images/smile-lightgray-new.png');
+    opacity: 0.5;
 }
 
 
@@ -63,8 +84,8 @@ html, body {
     /*background-image: url('images/smile-black.png');*/
     /*background-image: url('images/smile-gray.png');*/
     /*background-image: url('images/smile-brown.png');*/
-    background-image: url('images/smile-lightgray.png');
     /*background-image: url('images/smile-olive.png');*/
+    background-image: url('images/smile-lightgray.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }

@@ -1,15 +1,9 @@
 function initBoard() {
-    // board.cellSize = $( window ).height() / board.columns;
-    // board.$element.css( 'width', board.cellSize * board.rows + 'px' );
-
-    // board.cellSize = $( window ).width() / board.rows;
-    // board.$element.css( 'width', board.cellSize * board.rows + 'px' );
-    // board.$element.css( 'height', board.cellSize * board.rows + 'px' );
-
-
     board.cellSize = $( window ).height() / board.columns / 2.25;
     board.$element.css( 'width', board.cellSize * board.columns + 'px' );
     board.$element.css( 'height', board.cellSize * board.rows + 'px' );
+
+    // board.cellSize = $( window ).height() / board.columns / 3;
 }
 
 function initCells() {
@@ -27,6 +21,28 @@ function initCells() {
         'black', 'black', 'black', 'black', 'black',
         'white', 'white', 'white', 'white', 'white',
     ];
+
+    // let colors = [
+    //     'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray',
+    //     'gray', 'gray', 'gray', 'gray', 'gray',
+    //     'black', 'black', 'black',
+    //     'white', 'white', 'white'
+    // ];
+
+    // let colors = [
+    //     'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray',
+    //     'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray',
+    //     'black', 'black',
+    //     'white', 'white'
+    // ];
+
+    // let colors = [
+    //     'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray', 'gray',
+    //     'gray', 'gray', 'gray', 'gray', 'gray',
+    //     'gray', 'gray', 'gray', 'gray',
+    //     'black',
+    //     'white'
+    // ];
 
     shuffle( colors );
     let counter = 0;
@@ -70,4 +86,5 @@ function initialization() {
     initBoard();
     initCells();
     markDyingCells();
+    markReadyToNewBornCells();
 }

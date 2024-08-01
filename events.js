@@ -10,7 +10,8 @@ function onCellClick( event ) {
 
     // if ( cell.color === 'gray' && cell.isAvailable === true ) {
     if ( cell.isAvailable === true ) {
-        moveCell( cell );
+        moveCell( cell );        
+        markReadyToNewBornCells();
         markDyingCells();
         passTurn();
     }
