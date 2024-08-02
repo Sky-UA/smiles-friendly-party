@@ -95,70 +95,60 @@ function moveCell( targetCell ) {
 
     targetCell.isMooved = true;
     targetCell.$element.addClass( 'mooved-cell' );
-
-    // for ( let cell of board.cells ) {
-    //     console.log( cell.color );
-    // }
 }
 
 function getCellNeighboursCount( cell ) {
-    let neighboursCounter = 0
+    let neighboursCounter = 0;
 
-    // for ( let cell of board.cells ) {
-    //     if (!cell.isAlive) continue;
+    let neighbourN = getCellByIndexes({x: cell.indexes.x, y: cell.indexes.y - 1});
+    let neighbourNE = getCellByIndexes({x: cell.indexes.x + 1, y: cell.indexes.y - 1});
+    let neighbourE = getCellByIndexes({x: cell.indexes.x + 1, y: cell.indexes.y});
+    let neighbourSE = getCellByIndexes({x: cell.indexes.x + 1, y: cell.indexes.y + 1});
+    let neighbourS = getCellByIndexes({x: cell.indexes.x, y: cell.indexes.y + 1});
+    let neighbourSW = getCellByIndexes({x: cell.indexes.x - 1, y: cell.indexes.y + 1});
+    let neighbourW = getCellByIndexes({x: cell.indexes.x - 1, y: cell.indexes.y});
+    let neighbourNW = getCellByIndexes({x: cell.indexes.x - 1, y: cell.indexes.y - 1});
 
-        let neighbourN = getCellByIndexes({x: cell.indexes.x, y: cell.indexes.y - 1});
-        let neighbourNE = getCellByIndexes({x: cell.indexes.x + 1, y: cell.indexes.y - 1});
-        let neighbourE = getCellByIndexes({x: cell.indexes.x + 1, y: cell.indexes.y});
-        let neighbourSE = getCellByIndexes({x: cell.indexes.x + 1, y: cell.indexes.y + 1});
-        let neighbourS = getCellByIndexes({x: cell.indexes.x, y: cell.indexes.y + 1});
-        let neighbourSW = getCellByIndexes({x: cell.indexes.x - 1, y: cell.indexes.y + 1});
-        let neighbourW = getCellByIndexes({x: cell.indexes.x - 1, y: cell.indexes.y});
-        let neighbourNW = getCellByIndexes({x: cell.indexes.x - 1, y: cell.indexes.y - 1});
-
-        if (neighbourN) {
-            if (neighbourN.isAlive) {
-                neighboursCounter++;
-            }
+    if (neighbourN) {
+        if (neighbourN.isAlive) {
+            neighboursCounter++;
         }
-        if (neighbourNE) {
-            if (neighbourNE.isAlive) {
-                neighboursCounter++;
-            }
+    }
+    if (neighbourNE) {
+        if (neighbourNE.isAlive) {
+            neighboursCounter++;
         }
-        if (neighbourE) {
-            if (neighbourE.isAlive) {
-                neighboursCounter++;
-            }
+    }
+    if (neighbourE) {
+        if (neighbourE.isAlive) {
+            neighboursCounter++;
         }
-        if (neighbourSE) {
-            if (neighbourSE.isAlive) {
-                neighboursCounter++;
-            }
+    }
+    if (neighbourSE) {
+        if (neighbourSE.isAlive) {
+            neighboursCounter++;
         }
-        if (neighbourS) {
-            if (neighbourS.isAlive) {
-                neighboursCounter++;
-            }
+    }
+    if (neighbourS) {
+        if (neighbourS.isAlive) {
+            neighboursCounter++;
         }
-        if (neighbourSW) {
-            if (neighbourSW.isAlive) {
-                neighboursCounter++;
-            }
+    }
+    if (neighbourSW) {
+        if (neighbourSW.isAlive) {
+            neighboursCounter++;
         }
-        if (neighbourW) {
-            if (neighbourW.isAlive) {
-                neighboursCounter++;
-            }
+    }
+    if (neighbourW) {
+        if (neighbourW.isAlive) {
+            neighboursCounter++;
         }
-        if (neighbourNW) {
-            if (neighbourNW.isAlive) {
-                neighboursCounter++;
-            }
+    }
+    if (neighbourNW) {
+        if (neighbourNW.isAlive) {
+            neighboursCounter++;
         }
-
-        // neighboursCounter = 0;
-    // }
+    }
 
     return neighboursCounter;
 }
@@ -268,7 +258,6 @@ function calculateColorOfNewBornCell( cell ) {
 function markDyingCells() {
     for ( let cell of board.cells ) {
         if (!cell.isAlive) continue;
-
         let neighboursCounter = getCellNeighboursCount( cell );
 
         if ( neighboursCounter < 2 || neighboursCounter > 3 ) {
@@ -337,7 +326,6 @@ function addNewBornCells() {
 function isNonMoovedCellBlocked(cell) {
     let opponentTeamNeighboursCounter = 0;
     let cellColor = cell.color;
-
     let neighbourN = getCellByIndexes({x: cell.indexes.x, y: cell.indexes.y - 1});
     let neighbourE = getCellByIndexes({x: cell.indexes.x + 1, y: cell.indexes.y});
     let neighbourS = getCellByIndexes({x: cell.indexes.x, y: cell.indexes.y + 1});
@@ -372,16 +360,48 @@ function isNonMoovedCellBlocked(cell) {
         }
     }
 
-
     if (opponentTeamNeighboursCounter === 4) return true;
 }
 
+function isAnyCellMoveableOfColor(color) {
+    for ( let cell of board.cells ) {
+        if (cell.color === color) {
+            let isBlocked = isNonMoovedCellBlocked(cell);
+            if (!isBlocked) return true;
+        }
+    }
+}
+
+function setTeamColorOfNextMove() {
+    if (board.currentTeamColor === 'white') {
+        let isAnyMoveableBlackCell = isAnyCellMoveableOfColor('black');
+        if (isAnyMoveableBlackCell) {
+            board.currentTeamColor = 'black';
+        } else {
+            let isAnyMoveableWhiteCell = isAnyCellMoveableOfColor('white');
+            if (isAnyMoveableWhiteCell) {
+                board.currentTeamColor = 'white';
+            } else {
+                //TODO: check_winner???
+            }
+        }
+    } else { //currentTeamColor === 'black'
+        let isAnyMoveableWhiteCell = isAnyCellMoveableOfColor('white');
+        if (isAnyMoveableWhiteCell) {
+            board.currentTeamColor = 'white';
+        } else {
+            let isAnyMoveableBlackCell = isAnyCellMoveableOfColor('black');
+            if (isAnyMoveableBlackCell) {
+                board.currentTeamColor = 'black';
+            } else {
+                //TODO: check_winner???
+            }
+        }
+    }
+}
+
 function passTurn() {
-
-    // TODO: проверить, что если остались лишь смайлики которым некуда ходить, то передавать ход автоматически следуйщей команде!!!
-    // TODO: исправить передачу хода, если разное колво смайлов в командах!
     let isAllCellsMooved = true;
-
     for ( let cell of board.cells ) {
         if (cell.color !== 'gray') {
             if (!cell.isMooved) {
@@ -405,25 +425,8 @@ function passTurn() {
         
         markReadyToNewBornCells();
         markDyingCells();
-
-        let isAnyWhiteCellAlive = false;
-
-        for ( let cell of board.cells ) {
-            if (cell.isAlive) {
-                isAnyWhiteCellAlive = true;
-                break;
-            }
-        }
-
-        if (isAnyWhiteCellAlive) {
-            board.currentTeamColor = 'white';
-        }
-    } else {
-        if ( board.currentTeamColor === 'white' ) {
-            board.currentTeamColor = 'black';
-        } else {
-            board.currentTeamColor = 'white';
-        }
+        board.currentTeamColor = 'black';
     }
-}
 
+    setTeamColorOfNextMove();
+}

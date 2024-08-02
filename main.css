@@ -54,6 +54,9 @@ html, body {
 .dying-cell {
     border: 2px solid red;
     /* background-color: #7f3232; */
+    background-image: url('images/smile-olive-dying.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 .ready-to-new-born-white-cell, .ready-to-new-born-black-cell {
     background-repeat: no-repeat;
@@ -110,6 +113,18 @@ html, body {
 }
 
 
+
+
+
+
+
+/*.dying-cell {*/
+/*    !* border: 2px solid red; *!*/
+/*    !* background-color: #7f3232; *!*/
+/*    background-image: url('images/smile-lightgray-dying.png');*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 100% 100%;*/
+/*}*/
 
 /*.black {*/
 /*    background-color: black;*/
