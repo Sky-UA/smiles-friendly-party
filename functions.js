@@ -85,7 +85,8 @@ function moveCell( targetCell ) {
     currentCell.$element.removeClass( 'white black' );
     currentCell.$element.addClass( 'gray' );
     currentCell.isDying = false;
-    currentCell.$element.removeClass( 'dying-cell' );
+    // currentCell.$element.removeClass( 'dying-cell' );
+    currentCell.$element.removeClass( 'dying-white-cell dying-black-cell' );
 
     board.$cells.removeClass( 'available-cell' );
     for ( let cell of board.cells ) {
@@ -262,10 +263,12 @@ function markDyingCells() {
 
         if ( neighboursCounter < 2 || neighboursCounter > 3 ) {
             cell.isDying = true;
-            cell.$element.addClass( 'dying-cell' );
+            // cell.$element.addClass( 'dying-cell' );
+            cell.$element.addClass( 'dying-' + cell.color + '-cell' );
         } else {
             cell.isDying = false;
-            cell.$element.removeClass( 'dying-cell' );
+            // currentCell.$element.removeClass( 'dying-cell' );
+            cell.$element.removeClass( 'dying-white-cell dying-black-cell' );
         }
     }
 }
@@ -304,7 +307,7 @@ function removeDyingCells() {
             cell.color = 'gray';
             cell.isAlive = false;
             cell.isDying = false;
-            cell.$element.removeClass( 'white black dying-cell' );
+            cell.$element.removeClass( 'white black dying-white-cell dying-black-cell' );
             cell.$element.addClass( 'gray' );
         }
     }

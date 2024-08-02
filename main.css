@@ -51,30 +51,47 @@ html, body {
     /*border: 1px solid green;*/
     opacity: 0.5;
 }
-.dying-cell {
-    border: 2px solid red;
-    /* background-color: #7f3232; */
-    background-image: url('images/smile-olive-dying.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
+/*.dying-cell {*/
+/*    border: 2px solid red;*/
+/*    !* background-color: #7f3232; *!*/
+/*    background-image: url('images/smile-dying-black.png');*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 100% 100%;*/
+/*}*/
+/*.dying-white-cell, .dying-black-cell {*/
+/*    border: 2px solid red;*/
+/*    !* background-color: #7f3232; *!*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 100% 100%;*/
+/*}*/
+/*.dying-white-cell {*/
+/*    background-image: url('images/smile-dying-white.png');*/
+/*}*/
+/*.dying-black-cell {*/
+/*    background-image: url('images/smile-dying-black.png');*/
+/*}*/
 .ready-to-new-born-white-cell, .ready-to-new-born-black-cell {
     background-repeat: no-repeat;
+    /* background-size: 100% 100%; */
     background-size: 100% 100%;
     /*position: absolute;*/
     /*left: 24%;*/
     /*top: 26%;*/
-    opacity: 0.5;
+    /* opacity: 0.4; */
 }
 .ready-to-new-born-white-cell {
     /*border: 1px solid white;*/
-    background-image: url('images/smile-olive-new.png');
-    /* opacity: 0.5; */
+    opacity: 0.4;
+    /*background-color: white;*/
+    /*background-image: url('images/smile-olive-new.png');*/
+    background-image: url('images/white_hearth.png');
 }
 .ready-to-new-born-black-cell {
     /*border: 2px solid black;*/
-    background-image: url('images/smile-lightgray-new.png');
     opacity: 0.5;
+    /*background-color: black;*/
+    /*background-image: url('images/smile-lightgray-new.png');*/
+    background-image: url('images/black_hearth.png');
 }
 .blocked-cell {
     border: 2px solid black;
@@ -87,19 +104,19 @@ html, body {
     /*background-image: url('images/smile-blue.png');*/
     /*background-image: url('images/smile-orange.png');*/
     /*background-image: url('images/smile-gold.png');*/
-    /*background-image: url('images/smile-black.png');*/
+    background-image: url('images/smile-black.png');
     /*background-image: url('images/smile-gray.png');*/
     /*background-image: url('images/smile-brown.png');*/
     /*background-image: url('images/smile-olive.png');*/
-    background-image: url('images/smile-lightgray.png');
+    /*background-image: url('images/smile-lightgray.png');*/
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 .white {
     /*background-color: white;*/
     /*background-image: url('images/smile-yellow.png');*/
-    /*background-image: url('images/smile-white.png');*/
-    background-image: url('images/smile-olive.png');
+    background-image: url('images/smile-white.png');
+    /*background-image: url('images/smile-olive.png');*/
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -110,6 +127,27 @@ html, body {
     /* border-width: 0 1px 1px 0;*/
     border-style: solid;
     /* border-color: #7b6464; */
+}
+
+/*.dying-cell {*/
+/*    border: 2px solid red;*/
+/*    !* background-color: #7f3232; *!*/
+/*    background-image: url('images/smile-dying-black.png');*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 100% 100%;*/
+/*}*/
+
+.dying-white-cell, .dying-black-cell {
+    /* border: 2px solid red; */
+    /* background-color: #7f3232; */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.dying-white-cell {
+    background-image: url('images/smile-dying-white.png');
+}
+.dying-black-cell {
+    background-image: url('images/smile-dying-black.png');
 }
 
 
